@@ -19,7 +19,7 @@ class ReactNativeViewController: UIViewController {
         
         rnView = RNStuffReactModule.sharedInstance.viewForModule(
             "RNStuff",
-            initialProperties: ["identifier": msg, "currentRating": 3])
+            initialProperties: ["message": msg])
         self.view.addSubview(rnView)
         
         rnView.frame = self.view.bounds

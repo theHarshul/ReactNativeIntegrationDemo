@@ -12,7 +12,9 @@
 
 @interface RCT_EXTERN_MODULE(RNStuffManager, NSObject)
 
-RCT_EXTERN_METHOD(dismissPresentedViewController:(nonnull NSNumber *)reactTag)
-RCT_EXTERN_METHOD(save:(nonnull NSNumber *)reactTag message:(NSString *)message forIdentifier:(NSString *)forIdentifier)
+RCT_EXTERN_METHOD(addEvent:(nonnull NSNumber *)reactTag message:(NSString *)message callback:(RCTResponseSenderBlock *)successCallback);
+RCT_EXTERN_METHOD(dismissPresentedViewController:(nonnull NSNumber *)reactTag);
+RCT_EXTERN_METHOD(save:(nonnull NSNumber *)reactTag message:(NSString *)message);
+
 
 @end

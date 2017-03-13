@@ -139,8 +139,8 @@
 				D0EBADD01E766A1A004F9767 /* ReactNativeViewController.swift */,
 				D0A90F261E76723B00D481F0 /* RNStuffReactModule.swift */,
 				D0123FE31E772A9B00A588B8 /* RNStuffManager.m */,
-				D0123FE21E772A9B00A588B8 /* ReactNativeIntegrationDemo-Bridging-Header.h */,
 				D0123FE51E772AAC00A588B8 /* RNStuffManager.swift */,
+				D0123FE21E772A9B00A588B8 /* ReactNativeIntegrationDemo-Bridging-Header.h */,
 			);
 			path = ReactNativeIntegrationDemo;
 			sourceTree = "<group>";

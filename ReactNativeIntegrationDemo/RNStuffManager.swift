@@ -10,9 +10,9 @@ import Foundation
 import React
 
 @objc(RNStuffManager)
-class RNStuffManager: NSObject {
+class RNStuffManager: RCTEventEmitter {
     
-    var bridge: RCTBridge!
+    //var bridge: RCTBridge!
     
     @objc func dismissPresentedViewController(_ reactTag: NSNumber) {
         DispatchQueue.main.async {
@@ -23,19 +23,31 @@ class RNStuffManager: NSObject {
         }
     }
     
-    @objc func save(_ reactTag: NSNumber, message: NSString, forIdentifier identifier: NSString) -> Void {
+    @objc func save(_ reactTag: NSNumber, message: NSString) -> Void {
         // Save message
         UserDefaults.standard.set(message, forKey: "currentMessage")
-        print("new identifier: " + (identifier as String))
+        print("new identifier: " + (message as String))
         dismissPresentedViewController(reactTag)
         
-        /*self.sendInputEvent(
-         withName: "RNManagerEvent",
-         body: ["name": "event", "message": identifier, "extra": identifier])*/
+        self.sendEvent(
+            withName: "TextEvent",
+            body: ["name": "Text Event save succesfully received on native side", "message": message])
+        
         
     }
     
-    //    override func  -> [String]! {
-    //        return ["RNManagerEvent"]
-    //    }
+    @objc func addEvent(_ reactTag: NSNumber, message:NSString, callback successCallback: RCTResponseSenderBlock) -> Void {
+        // Date is ready to use!
+        NSLog("Bridge: %@", self.bridge);
+        //NSLog("%@ %@ %@", name, location, date)
+        var ret = [[String:Any]]()
+        ret.append([ "status": "success"])
+        successCallback(ret)
+        self.bridge.eventDispatcher().sendAppEvent(withName: "EventReminder", body: ret)
+    }
+    
+    override func supportedEvents() -> [String]! {
+        return ["TextEvent", "EventReminder"]
+    }
+    
 }

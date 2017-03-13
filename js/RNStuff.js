@@ -10,19 +10,66 @@ import {
   TouchableOpacity,
   NativeModules,
   TextInput,
+  NativeEventEmitter,
 } from 'react-native';
 
 const { RNStuffManager } = NativeModules;
 
 class RNStuff extends React.Component {
 
+
+
   constructor(props) {
     super(props);
+
     this.state = {
-      identifier: props.identifier,
-      currentRating: props.currentRating,
+      message: props.message,
       text:'placheolder'
     }
+
+    this._subscription = null;
+    this._date_subscription = null;
+  }
+
+  componentDidMount() {
+    const TextEvent = new NativeEventEmitter(RNStuffManager);
+    this._subscription = TextEvent.addListener(
+      'TextEvent',
+      (info) => {
+        console.log(JSON.stringify(info));
+      }
+
+    );
+
+    const ReminderEvent = new NativeEventEmitter(RNStuffManager);
+    this._date_subscription = ReminderEvent.addListener(
+      'EventReminder',
+   (reminder) => {
+       console.log('EVENT');
+       console.log('message: ' + reminder.message);
+   }
+ );
+
+
+      RNStuffManager.addEvent(this.props.rootTag,"One", 
+            // successCallback
+            (results) => {
+              console.log(' in callback ');
+              console.log(results);
+            }
+          );
+      // , function(o) {
+//     console.log('In Callback')
+//     console.dir(o)
+//
+// });
+
+}
+
+
+  componentWillUnmount() {
+    this._subscription.remove();
+    this._date_subscription.remove();
   }
 
     _renderScene(route, navigator) {
@@ -31,8 +78,8 @@ class RNStuff extends React.Component {
             <Text style={styles.welcome}>We're live from React Native!!!</Text>
               <TextInput
                style={{height: 40, fontSize : 20, borderColor: 'gray', borderWidth: 1, textAlign: 'center'}}
-               value={this.state.identifier}
-               onChangeText={(identifier) => this.setState({identifier})}
+               value={this.state.message}
+               onChangeText={(message) => this.setState({message})}
              />
           </View>
         );
@@ -62,8 +109,7 @@ _renderNavRightItem(route, navigator, index, navState) {
       onPress={() => {
           RNStuffManager.save(
             this.props.rootTag,
-            this.state.identifier,
-            this.state.identifier
+            this.state.message,
           );
         }}
       style={styles.navBarRightButton}>
