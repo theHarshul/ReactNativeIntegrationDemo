@@ -6,20 +6,20 @@
 //  Copyright © 2017 Harshul Mulchandani. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import React
 
 class ReactNativeViewController: UIViewController {
     
     var rnView: RCTRootView!
+    var msg: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         rnView = RNStuffReactModule.sharedInstance.viewForModule(
             "RNStuff",
-            initialProperties: ["identifier": " message from swift!", "currentRating": 3])
+            initialProperties: ["identifier": msg, "currentRating": 3])
         self.view.addSubview(rnView)
         
         rnView.frame = self.view.bounds
@@ -33,3 +33,4 @@ class ReactNativeViewController: UIViewController {
     
     
 }
+

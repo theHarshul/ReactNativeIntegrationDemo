@@ -8,17 +8,35 @@ import {
   View,
   Navigator,
   TouchableOpacity,
+  NativeModules,
+  TextInput,
 } from 'react-native';
+
+const { RNStuffManager } = NativeModules;
 
 class RNStuff extends React.Component {
 
-  _renderScene(route, navigator) {
-    return (
-      <View style={styles.content}>
-        <Text style={styles.welcome}>We're live from React Native!!!</Text>
-      </View>
-    );
+  constructor(props) {
+    super(props);
+    this.state = {
+      identifier: props.identifier,
+      currentRating: props.currentRating,
+      text:'placheolder'
+    }
   }
+
+    _renderScene(route, navigator) {
+        return (
+          <View style={styles.content}>
+            <Text style={styles.welcome}>We're live from React Native!!!</Text>
+              <TextInput
+               style={{height: 40, fontSize : 20, borderColor: 'gray', borderWidth: 1, textAlign: 'center'}}
+               value={this.state.identifier}
+               onChangeText={(identifier) => this.setState({identifier})}
+             />
+          </View>
+        );
+      }
 
 _renderNavTitle(route, navigator, index, navState) {
   return <Text style={styles.navBarTitleText}>{route.title}</Text>;
@@ -27,7 +45,9 @@ _renderNavTitle(route, navigator, index, navState) {
 _renderNavLeftItem(route, navigator, index, navState) {
   return (
     <TouchableOpacity
-      onPress={() => console.log('Cancel button pressed')}
+      onPress={() => {
+        RNStuffManager.dismissPresentedViewController(this.props.rootTag);
+      }}
       style={styles.navBarLeftButton}>
       <Text style={[styles.navBarText, styles.navBarButtonText]}>
         Cancel
@@ -39,7 +59,13 @@ _renderNavLeftItem(route, navigator, index, navState) {
 _renderNavRightItem(route, navigator, index, navState) {
   return (
     <TouchableOpacity
-      onPress={() => console.log('Save button pressed')}
+      onPress={() => {
+          RNStuffManager.save(
+            this.props.rootTag,
+            this.state.identifier,
+            this.state.identifier
+          );
+        }}
       style={styles.navBarRightButton}>
       <Text style={[styles.navBarText, styles.navBarButtonText]}>
         Save
@@ -81,7 +107,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 30,
     color: 'black',
   },
   navBar: {

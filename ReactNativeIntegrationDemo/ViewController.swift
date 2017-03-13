@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var msg: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +21,19 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let message = UserDefaults.standard.string(forKey: "currentMessage")
+        msg.text = message
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let reactNativeViewController = segue.destination as! ReactNativeViewController
+        reactNativeViewController.msg = msg.text
+    }
+//
 
 }
 
