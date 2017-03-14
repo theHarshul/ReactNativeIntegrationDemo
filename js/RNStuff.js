@@ -6,12 +6,13 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator,
   TouchableOpacity,
   NativeModules,
   TextInput,
   NativeEventEmitter,
 } from 'react-native';
+
+import Navigator from 'native-navigation';
 
 const { RNStuffManager } = NativeModules;
 
@@ -51,7 +52,7 @@ class RNStuff extends React.Component {
  );
 
 
-      RNStuffManager.addEvent(this.props.rootTag,"One", 
+      RNStuffManager.addEvent(this.props.rootTag,"One",
             // successCallback
             (results) => {
               console.log(' in callback ');
@@ -72,72 +73,85 @@ class RNStuff extends React.Component {
     this._date_subscription.remove();
   }
 
-    _renderScene(route, navigator) {
-        return (
-          <View style={styles.content}>
-            <Text style={styles.welcome}>We're live from React Native!!!</Text>
-              <TextInput
-               style={{height: 40, fontSize : 20, borderColor: 'gray', borderWidth: 1, textAlign: 'center'}}
-               value={this.state.message}
-               onChangeText={(message) => this.setState({message})}
-             />
-          </View>
-        );
-      }
+  // _renderScene() {
+  //       return (
+  //         <View style={styles.content}>
+  //           <Text style={styles.welcome}>We're live from React Native!!!</Text>
+  //             <TextInput
+  //              style={{height: 40, fontSize : 20, borderColor: 'gray', borderWidth: 1, textAlign: 'center'}}
+  //              value={this.state.message}
+  //              onChangeText={(message) => this.setState({message})}
+  //            />
+  //         </View>
+  //       );
+  //     }
 
-_renderNavTitle(route, navigator, index, navState) {
-  return <Text style={styles.navBarTitleText}>{route.title}</Text>;
-}
+// _renderNavTitle(route, navigator, index, navState) {
+//   return <Text style={styles.navBarTitleText}>{route.title}</Text>;
+// }
 
-_renderNavLeftItem(route, navigator, index, navState) {
-  return (
-    <TouchableOpacity
-      onPress={() => {
-        RNStuffManager.dismissPresentedViewController(this.props.rootTag);
-      }}
-      style={styles.navBarLeftButton}>
-      <Text style={[styles.navBarText, styles.navBarButtonText]}>
-        Cancel
-      </Text>
-    </TouchableOpacity>
-  );
-}
+// _renderNavLeftItem(route, navigator, index, navState) {
+//   return (
+//     <TouchableOpacity
+//       onPress={() => {
+//         RNStuffManager.dismissPresentedViewController(this.props.rootTag);
+//       }}
+//       style={styles.navBarLeftButton}>
+//       <Text style={[styles.navBarText, styles.navBarButtonText]}>
+//         Cancel
+//       </Text>
+//     </TouchableOpacity>
+//   );
+// }
 
-_renderNavRightItem(route, navigator, index, navState) {
-  return (
-    <TouchableOpacity
-      onPress={() => {
-          RNStuffManager.save(
-            this.props.rootTag,
-            this.state.message,
-          );
-        }}
-      style={styles.navBarRightButton}>
-      <Text style={[styles.navBarText, styles.navBarButtonText]}>
-        Save
-      </Text>
-    </TouchableOpacity>
-  );
-}
+// _renderNavRightItem(route, navigator, index, navState) {
+//   return (
+//     <TouchableOpacity
+//       onPress={() => {
+//           RNStuffManager.save(
+//             this.props.rootTag,
+//             this.state.message,
+//           );
+//         }}
+//       style={styles.navBarRightButton}>
+//       <Text style={[styles.navBarText, styles.navBarButtonText]}>
+//         Save
+//       </Text>
+//     </TouchableOpacity>
+//   );
+// }
 
 render() {
   return (
-    <Navigator
-      debugOverlay={false}
-      style={styles.container}
-      initialRoute={{title: 'Menu'}}
-      renderScene={this._renderScene.bind(this)}
-      navigationBar={
-        <Navigator.NavigationBar
-          routeMapper={{
-            LeftButton: this._renderNavLeftItem.bind(this),
-            RightButton: this._renderNavRightItem.bind(this),
-            Title: this._renderNavTitle.bind(this),
-          }}
-          style={styles.navBar}
-        />
-      }
-    />
+    <View style={styles.content}>
+      <Text style={styles.welcome}>We're live from React Native!!!</Text>
+        <TextInput
+         style={{height: 40, fontSize : 20, borderColor: 'gray', borderWidth: 1, textAlign: 'center', padding: 5}}
+         value={this.state.message}
+         onChangeText={(message) => this.setState({message})}
+       />
+       <TouchableOpacity
+             onPress={() => {
+                 RNStuffManager.save(
+                   this.props.rootTag,
+                   this.state.message,
+                 );
+               }}>
+             <Text style={styles.options}>
+               Save
+             </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+            onPress={() => {
+              //bridged by native-navigation/ReactNavigation.swift
+              Navigator.pop()
+            }}>
+            <Text style={styles.options}>
+              Cancel
+            </Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
@@ -155,6 +169,11 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 30,
     color: 'black',
+  },
+  options: {
+    fontSize: 20,
+    color:'blue',
+    padding: 5,
   },
   navBar: {
     backgroundColor: 'red',

@@ -8,26 +8,30 @@
 
 import Foundation
 import React
+import NativeNavigation
+
 
 @objc(RNStuffManager)
 class RNStuffManager: RCTEventEmitter {
     
     //var bridge: RCTBridge!
     
-    @objc func dismissPresentedViewController(_ reactTag: NSNumber) {
-        DispatchQueue.main.async {
-            if let view = self.bridge.uiManager.view(forReactTag: reactTag) {
-                let presentedViewController: UIViewController! = view.reactViewController()
-                presentedViewController.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
+//    @objc func dismissPresentedViewController(_ reactTag: NSNumber) {
+//        print( reactTag)
+//
+//        DispatchQueue.main.async {
+//            if let view = self.bridge.uiManager.view(forReactTag: reactTag) {
+//                let presentedViewController: UIViewController! = view.reactViewController()
+//                presentedViewController.dismiss(animated: true, completion: nil)
+//            }
+//        }
+//    }
     
     @objc func save(_ reactTag: NSNumber, message: NSString) -> Void {
         // Save message
         UserDefaults.standard.set(message, forKey: "currentMessage")
         print("new identifier: " + (message as String))
-        dismissPresentedViewController(reactTag)
+        //dismissPresentedViewController(reactTag)
         
         self.sendEvent(
             withName: "TextEvent",

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "378CAFFA57F7C046236C86FA82DA9B8F"
+               BlueprintIdentifier = "329F58CC7282C8D91DE3EDEA651CFF33"
                BuildableName = "Pods_ReactNativeIntegrationDemo.framework"
                BlueprintName = "Pods-ReactNativeIntegrationDemo"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "378CAFFA57F7C046236C86FA82DA9B8F"
+            BlueprintIdentifier = "329F58CC7282C8D91DE3EDEA651CFF33"
             BuildableName = "Pods_ReactNativeIntegrationDemo.framework"
             BlueprintName = "Pods-ReactNativeIntegrationDemo"
             ReferencedContainer = "container:Pods.xcodeproj">

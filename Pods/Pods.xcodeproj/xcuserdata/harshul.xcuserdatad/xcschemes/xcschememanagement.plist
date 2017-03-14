@@ -19,20 +19,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>native-navigation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>378CAFFA57F7C046236C86FA82DA9B8F</key>
+		<key>329F58CC7282C8D91DE3EDEA651CFF33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38DD2C4087418ABF5F2F018358E0B7E3</key>
+		<key>7D2D4DB3D0B51903F7B21F9E98BEDACA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA2CC2FCE26B6E589F712ED0718BE059</key>
+		<key>AD74C5A07A42968D301406C892121E18</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD579EB7B4B961615EF1E0380DB3BFC5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00E17B11E77D0AE0092A7B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E17B01E77D0AE0092A7B1 /* AppDelegate.swift */; };
 		D0123FE41E772A9B00A588B8 /* RNStuffManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0123FE31E772A9B00A588B8 /* RNStuffManager.m */; };
 		D0123FE61E772AAC00A588B8 /* RNStuffManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0123FE51E772AAC00A588B8 /* RNStuffManager.swift */; };
 		D0A90F271E76723B00D481F0 /* RNStuffReactModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A90F261E76723B00D481F0 /* RNStuffReactModule.swift */; };
-		D0EBADA31E7669BF004F9767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBADA21E7669BF004F9767 /* AppDelegate.swift */; };
 		D0EBADA51E7669BF004F9767 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBADA41E7669BF004F9767 /* ViewController.swift */; };
-		D0EBADA81E7669BF004F9767 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0EBADA61E7669BF004F9767 /* Main.storyboard */; };
 		D0EBADAA1E7669BF004F9767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0EBADA91E7669BF004F9767 /* Assets.xcassets */; };
 		D0EBADAD1E7669BF004F9767 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0EBADAB1E7669BF004F9767 /* LaunchScreen.storyboard */; };
 		D0EBADB81E7669BF004F9767 /* ReactNativeIntegrationDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBADB71E7669BF004F9767 /* ReactNativeIntegrationDemoTests.swift */; };
@@ -40,14 +39,13 @@
 
 /* Begin PBXFileReference section */
 		16AED7E89BB0EF6D6F6263B9 /* Pods_ReactNativeIntegrationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactNativeIntegrationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00E17B01E77D0AE0092A7B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0123FE21E772A9B00A588B8 /* ReactNativeIntegrationDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeIntegrationDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0123FE31E772A9B00A588B8 /* RNStuffManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNStuffManager.m; sourceTree = "<group>"; };
 		D0123FE51E772AAC00A588B8 /* RNStuffManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNStuffManager.swift; sourceTree = "<group>"; };
 		D0A90F261E76723B00D481F0 /* RNStuffReactModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNStuffReactModule.swift; sourceTree = "<group>"; };
 		D0EBAD9F1E7669BF004F9767 /* ReactNativeIntegrationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeIntegrationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0EBADA21E7669BF004F9767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0EBADA41E7669BF004F9767 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D0EBADA71E7669BF004F9767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0EBADA91E7669BF004F9767 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0EBADAC1E7669BF004F9767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0EBADAE1E7669BF004F9767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,9 +128,7 @@
 		D0EBADA11E7669BF004F9767 /* ReactNativeIntegrationDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D0EBADA21E7669BF004F9767 /* AppDelegate.swift */,
 				D0EBADA41E7669BF004F9767 /* ViewController.swift */,
-				D0EBADA61E7669BF004F9767 /* Main.storyboard */,
 				D0EBADA91E7669BF004F9767 /* Assets.xcassets */,
 				D0EBADAB1E7669BF004F9767 /* LaunchScreen.storyboard */,
 				D0EBADAE1E7669BF004F9767 /* Info.plist */,
@@ -141,6 +137,7 @@
 				D0123FE31E772A9B00A588B8 /* RNStuffManager.m */,
 				D0123FE51E772AAC00A588B8 /* RNStuffManager.swift */,
 				D0123FE21E772A9B00A588B8 /* ReactNativeIntegrationDemo-Bridging-Header.h */,
+				D00E17B01E77D0AE0092A7B1 /* AppDelegate.swift */,
 			);
 			path = ReactNativeIntegrationDemo;
 			sourceTree = "<group>";
@@ -276,7 +273,6 @@
 			files = (
 				D0EBADAD1E7669BF004F9767 /* LaunchScreen.storyboard in Resources */,
 				D0EBADAA1E7669BF004F9767 /* Assets.xcassets in Resources */,
-				D0EBADA81E7669BF004F9767 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,12 +345,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00E17B11E77D0AE0092A7B1 /* AppDelegate.swift in Sources */,
 				D0123FE61E772AAC00A588B8 /* RNStuffManager.swift in Sources */,
 				D0123FE41E772A9B00A588B8 /* RNStuffManager.m in Sources */,
 				D0A90F271E76723B00D481F0 /* RNStuffReactModule.swift in Sources */,
 				D0EBADA51E7669BF004F9767 /* ViewController.swift in Sources */,
 				D0EBADD11E766A1A004F9767 /* ReactNativeViewController.swift in Sources */,
-				D0EBADA31E7669BF004F9767 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,14 +386,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D0EBADA61E7669BF004F9767 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0EBADA71E7669BF004F9767 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D0EBADAB1E7669BF004F9767 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

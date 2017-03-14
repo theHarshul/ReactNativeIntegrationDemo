@@ -6,6 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "murmur2js": "^1.0.0",
+    "native-navigation": "^0.1.0",
     "react": "15.4.1",
     "react-native": "0.42.0"
   }

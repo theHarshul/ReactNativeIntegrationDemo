@@ -1,0 +1,25 @@
+{
+  "gitbook": "3.2.2",
+  "title": "Native Navigation",
+  "description": "Native Navigation for React Native",
+  "structure": {
+    "glossary": "GLOSSARY.md"
+  },
+  "plugins": [
+    "edit-link",
+    "prism",
+    "-highlight",
+    "github",
+    "anchorjs",
+    "-search"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/airbnb/native-navigation/tree/master",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/airbnb/native-navigation/"
+    }
+  }
+}
